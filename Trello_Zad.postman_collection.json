@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "16a7d3f9-37e3-4c57-916e-a7d52d7d3cb4",
+		"name": "Trello_Zad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23863956"
+	},
+	"item": [
+		{
+			"name": "Utworzenie tablicy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/boards/?name=Nowa_Tablica&key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Nowa_Tablica"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokaż tablice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/members/me/boards?key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"members",
+						"me",
+						"boards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Utworzenie listy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/lists?name=Nowa_lista&idBoard=637d0450f61b070108e47d87&key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Nowa_lista"
+						},
+						{
+							"key": "idBoard",
+							"value": "637d0450f61b070108e47d87"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokaż listy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/boards/637d0450f61b070108e47d87/lists?key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"boards",
+						"637d0450f61b070108e47d87",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aktualizacja listy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/lists/637d06d8336a9a0084493145?key={{key}}&token={{token}}&name=Nowa_lista_po_aktualizacji",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"lists",
+						"637d06d8336a9a0084493145"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": "Nowa_lista_po_aktualizacji"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archiwizacja/zamknięcie listy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/lists/637e4592bd3263024dba3327/closed?key={{key}}&token={{token}}&value=true",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"lists",
+						"637e4592bd3263024dba3327",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "value",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Utworzenie karty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cards?idList=637d06d8336a9a0084493145&key={{key}}&token={{token}}&name=Nowa_karta",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cards"
+					],
+					"query": [
+						{
+							"key": "idList",
+							"value": "637d06d8336a9a0084493145"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": "Nowa_karta"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokaż karty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/lists/637d06d8336a9a0084493145/cards?key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"lists",
+						"637d06d8336a9a0084493145",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aktualizacja karty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cards/637e43f1b6afe2001621c0f0?key={{key}}&token={{token}}&name=Nowa_karta_po_aktualizacji",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cards",
+						"637e43f1b6afe2001621c0f0"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": "Nowa_karta_po_aktualizacji"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usunięcie karty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cards/637e44f4245cb300597eb47b?key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cards",
+						"637e44f4245cb300597eb47b"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archiwizacja/zamknięcie karty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cards/637e477acb6a93013a8fb053/closed?key={{key}}&token={{token}}&value=true",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cards",
+						"637e477acb6a93013a8fb053",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "value",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Przeniesienie karty do innej listy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cards/637e4246ab572a016387d643/idList?value=637e48784c89e200fc20d1d2&key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cards",
+						"637e4246ab572a016387d643",
+						"idList"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "637e48784c89e200fc20d1d2"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Utworzenie checklisty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/checklists?idCard=637e4246ab572a016387d643&key={{key}}&token={{token}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"checklists"
+					],
+					"query": [
+						{
+							"key": "idCard",
+							"value": "637e4246ab572a016387d643"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "c8b2ddd70d5216ce4e7558936fe2c6a1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "8df1cb0c1110fbe46e2bf3ed3d5d67d39f989d7287a3d2c5c0f1ea5a5970913b",
+			"type": "string"
+		},
+		{
+			"key": "URL",
+			"value": "https://api.trello.com/1",
+			"type": "string"
+		}
+	]
+}
